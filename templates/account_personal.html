@@ -1,0 +1,75 @@
+{% extends 'base_profile.html' %}
+{% load static %}
+
+{% block head %}
+    Create Account
+{% endblock head %}
+
+{% block body %}
+    <div class="container" style="margin-top: 50px">
+        <div class="container my-4 bg-form py-3" style="margin-top: 110px;">
+            <div class="text-center">
+                <img src="{% static 'images/logosecure.png' %}" alt="Logo" height="120px">
+                <img src="{% static 'images/' %}" alt="">
+            </div>
+            <h1 class="my-3 ansi-underline" style="text-decoration: underline #444444">Create Your Profile: </h1>
+            <div class="profile-form">
+                <form action="#" method="post">
+                    {% csrf_token %}
+                    <div class="input-profile" style="font-size: 25px; font-weight:600">
+                        <label name="name" id="name">Full Name: </label><br/>
+                        <input type="text" id='name' name="name" required>
+
+                    </div>
+                    <div class="input-profile" style="font-size: 25px; font-weight:600">
+                        <label name="date" id="date">Date of birth: </label><br/>
+                        <input type="date" id='date' name="date" style="width: 20%;" required>
+                    </div>
+                    <div class="input-profile" style="font-size: 25px; font-weight:600">
+                        <label name="gender" id="gender">Gender: </label>
+                        <select id='gender' name="gender">
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                            <option value="O">Other</option>
+                        </select>
+                    </div>
+                    <div class="input-profile" style="font-size: 25px; font-weight:600">
+                        <label name="header" id="header">header: </label><br/>
+                        <input type="text" id="header" name="header" style="font-size: 18px; width: 90% "
+                               placeholder="Write the header for your profile.">
+
+                    </div>
+                    <div class="input-profile" style="font-size: 25px; font-weight:600">
+                        <label name="interest" id="interest">Interest: </label><br/>
+                        <input type="text" id="interest" name="interest" style="font-size: 18px; width: 90% "
+                               placeholder="YOur interests eg: machine learning, front end developer.">
+
+                    </div>
+                    <div class="input-profile" style="font-size: 25px; font-weight:600">
+                        <label name="work_exp" id="work_exp">Work experience: </label><br/>
+                        <input type="text" id="work_exp" name="work_exp" style="font-size: 18px; width: 90% "
+                               placeholder="Write the projects you have worked on before.">
+                    </div>
+                    <div class="input-profile" style="font-size: 25px; font-weight:600">
+                        <label name="education" id="education">Education: </label><br/>
+                        <input type="text" id="education" name="education" style="font-size: 18px; width: 90% "
+                               placeholder="Brief about your education (institute, course).">
+                    </div>
+                    <div class="input-profile" style="font-size: 25px; font-weight:600">
+                        <label name="website" id="website">Website link: </label><br/>
+                        <input type="text" id="website" name="website" style="font-size: 18px; width: 90% "
+                               placeholder="Drop your website or github link if you have.">
+                    </div>
+                    <div style="font-size: 25px; font-weight:600">
+                        <label name="photo" id="photo">Profile Photo: </label>
+                        <input type="file" name="photo" , id="photo" >
+                    </div>
+                    <div class="mb-3 mt-3 text-center">
+                        <button type="submit" class=" btn1">Submit</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock body %}

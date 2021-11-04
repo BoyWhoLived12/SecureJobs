@@ -1,0 +1,108 @@
+
+.infinity-image-container {
+    background: url('images/bg.jpg') center no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.infinity-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.infinity-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.infinity-form h1 {
+    font-weight: 500;
+}
+
+.infinity-form .form-input {
+    position: relative;
+}
+
+
+.infinity-form .form-input input {
+    width: 100%;
+    margin-bottom: 20px;
+    height: 50px;
+    font-size: 20px;
+    border: none;
+    border-bottom: 2px solid #777;
+    outline: none;
+    background: transparent;
+    padding-left: 40px;
+    font-weight: bold;
+    color: #777;
+}
+
+.infinity-form .form-input span {
+    position: absolute;
+    top: 8px;
+    padding-left: 10px;
+    color: #777;
+}
+
+.infinity-form .form-input input:focus,
+.infinity-form .form-input input:valid {
+    border-bottom: 2px solid #4285f4;
+}
+
+.infinity-form .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #4285f4 !important;
+    border: 0px;
+}
+
+.infinity-form button[type="submit"] {
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    background: linear-gradient(45deg, #4285f4, #709de8); /*Button Color*/
+    color: #fff;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+.infinity-form button[type="submit"]:hover {
+    background: linear-gradient(45deg, #709de8, #4285f4); /*Button color when hover*/
+}
+
+.forget-link, .login-link, .register-link {
+    color: #709de8;
+    font-weight: bold;
+}
+
+.forget-link:hover, .login-link:hover, .register-link:hover {
+    color: #4285f4;
+    text-decoration: none;
+}
+
+.btn1 {
+    height: 50px;
+    width: 50%;
+    font-size: 20px;
+    margin: 0 auto;
+    display: block;
+
+}
+
+.btn1:hover {
+    color: #4285f4;
+    background-color: #afb7c5;
+    border: thin #4285f4;
+}
+
+.input-profile {
+    margin-bottom: 10px;
+}
+
+.profile-form {
+    font-size: 24px;
+}

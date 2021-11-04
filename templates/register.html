@@ -1,0 +1,68 @@
+{% extends 'auth_base.html' %}
+{% load static %}
+{% block head %}
+    Register
+{% endblock head %}
+
+{% block body %}
+    <div class="col-lg-6 col-md-6 infinity-form-container">
+        <div class="col-lg-9 col-md-12 col-sm-8 col-xs-12 infinity-form">
+            <!-- Company Logo -->
+            <div class="text-center mb-3 mt-5">
+                <img src="{% static 'images/logosecure.png' %}" width="300px">
+            </div>
+            <div class="text-center mb-4">
+                <h1>Create new account</h1>
+            </div>
+            <!-- Form -->
+            <form class="px-3" action="register" method="post">
+                {% csrf_token %}
+                <!-- Input Box -->
+                <div class="form-input mx-2" style="margin-bottom: 19px;">
+                    <h4 style="color: #777777;"> Account Type: {{ form.accType }}</h4>
+                </div>
+                <div class="mt-2"></div>
+                <div class="form-input">
+                    <span><i class="fa fa-user" style="font-size: 25px;"></i></span>
+                    {{ form.username }}
+                </div>
+                <div class="form-input">
+                    <span><i class="fa fa-envelope mt-1" style="font-size: 25px;"></i></span>
+                    {{ form.email }}
+                </div>
+
+                <div class="form-input">
+                    <span><i class="fa fa-lock mt-1" style="font-size: 25px;"></i></span>
+                    {{ form.password1 }}
+                </div>
+                <div class="form-input">
+                    <span><i class="fa fa-lock mt-1" style="font-size: 25px;"></i></span>
+                    {{ form.password2 }}
+                </div>
+                <!-- Login Button -->
+                <div class="mb-3">
+                    <button type="submit" class=" btn1">Sign Up</button>
+                </div>
+                <!-- Forget Password -->
+                <div class="text-center mb-5 mt-3" style="color: #777;">Already have an account?
+                    <a class="register-link" href="{% url 'login' %}">Sign In</a>
+                </div>
+            </form>
+        </div>
+        <!-- FORM END -->
+    </div>
+    <script>
+        var form_fields = document.getElementsByTagName('input')
+        form_fields[1].placeholder = 'Username...';
+        form_fields[2].placeholder = 'Email...';
+        form_fields[3].placeholder = 'Enter password...';
+        form_fields[4].placeholder = 'Re-enter Password...';
+
+
+        for (var field in form_fields) {
+            form_fields[field].className += ' form-control'
+        }
+    </script>
+
+{% endblock body %}
+    

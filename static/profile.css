@@ -1,0 +1,60 @@
+body, html {
+    height: 100%;
+}
+
+.bg {
+    /* The image used */
+    background-image: url("https://th.bing.com/th/id/OIP.MtAVxV-qH9F7nACZG5umzQHaC5?pid=ImgDet&rs=1");
+
+    /* Full height */
+    height: 100%;
+    background-color: #777777;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bg-form{
+    background-color: white;
+    /*opacity: 0.4;*/
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.input-profile {
+    margin-bottom: 10px;
+}
+
+.profile-form {
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.profile-form .input-profile input {
+    width: 30%;
+    height: 40px;
+    font-size: 24px;
+    border: none;
+    border-bottom: 2px solid #777;
+    outline: none;
+    background: transparent;
+    font-weight: bold;
+}
+.profile-form .input-profile textarea {
+    width: 80%;
+    height: 40px;
+    border: none;
+    border-bottom: 2px solid #777;
+    outline: none;
+    background: transparent;
+}
+.infinity-form button[type="submit"] {
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    background: linear-gradient(45deg, #4285f4, #709de8); /*Button Color*/
+    color: #fff;
+    font-weight: bold;
+    transition: 0.5s;
+}
