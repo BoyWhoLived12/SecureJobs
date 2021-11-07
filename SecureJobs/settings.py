@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'SecureJobs.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'secureJobs',
+        'NAME': 'secureJobs2',
         'HOST': '127.0.0.1',
         'PORT': '3306',
         'USER': 'root',

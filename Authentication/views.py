@@ -79,15 +79,15 @@ def account_company(request):
         reach = request.POST['reach']
         logo = request.POST['logo']
         print(name, date)
-        ins = Company(company_id=username,
+        ins1 = Company(company_id=username,
                       comp_name=name,
                       category=category,
                       date_inco=date,
                       interest=interest,
                       about=about,
                       logo=logo)
-        ins.save()
-        ins = CompanyContact(company=username,
+        ins1.save()
+        ins = CompanyContact(company=ins1,
                              contact_email=mail_id,
                              contact_phone=phone,
                              address=address,
@@ -111,12 +111,12 @@ def account_personal(request):
         education = request.POST['education']
         website = request.POST['website']
         photo = request.POST['photo']
-        ins = FollowerPersonal(follower_id=username,
+        ins1 = FollowerPersonal(follower_id=username,
                                full_name=name,
                                gender=gender,
                                date_of_birth=dob)
-        ins.save()
-        ins = FollowerProf(follower=username,
+        ins1.save()
+        ins = FollowerProf(follower=ins1,
                            header=header,
                            interests=interest,
                            education=education,
@@ -126,3 +126,8 @@ def account_personal(request):
         ins.save()
 
     return render(request, 'account_personal.html', context)
+
+
+def job_post(request):
+    context = {}
+    return render(request, 'job_post.html', context)
