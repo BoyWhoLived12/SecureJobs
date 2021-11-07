@@ -1,0 +1,92 @@
+{% extends 'base_profile.html' %}
+{% load static %}
+
+{% block head %}
+    Create Account
+{% endblock head %}
+
+{% block body %}
+    <div class="container" style="margin-top: 50px">
+        <div class="container my-4 bg-form py-3" style="margin-top: 110px;">
+            <div class="text-center">
+                <img src="{% static 'images/logosecure.png' %}" alt="Logo" height="120px">
+                <img src="{% static 'images/' %}" alt="">
+            </div>
+            <h1 class="my-3 ansi-underline" style="text-decoration: underline #444444">Job Opportunity: </h1>
+            <div class="profile-form">
+                <form action="#" method="post">
+                    {% csrf_token %}
+                    <div class="input-profile" style="font-size: 25px; font-weight:600">
+                        <label name="name" id="name">Job Title</label><br/>
+                        <input type="text" id='name' name="name" required>
+                    </div>
+                    <div class="input-profile" style="font-size: 25px; font-weight:600">
+                        <label name="name" id="name">Job Description</label><br/>
+                        <input type="text" id='name' name="name" required>
+                    </div>
+{#                    <div class="input-profile" style="font-size: 25px; font-weight:600">#}
+{#                        <label name="date" id="date">Date of incorporation: </label><br/>#}
+{#                        <input type="date" id='date' name="date" style="width: 20%;" required>#}
+{#                    </div>#}
+{#                    <div class="input-profile" style="font-size: 25px; font-weight:600">#}
+{#                        <label name="category" id="category">Category: (To be corrected) </label>#}
+{#                        <select id='category' name="category">#}
+{#                            <option value="M">Male</option>#}
+{#                            <option value="F">Female</option>#}
+{#                            <option value="O">Other</option>#}
+{#                        </select>#}
+{#                    </div>#}
+                    <div class="input-profile" style="font-size: 25px; font-weight:600">
+                        <label name="about" id="about">Job Type</label><br/>
+                        <input type="text" id="about" name="about" style="font-size: 18px; width: 90% "
+                               placeholder="Intern/Full-time/Part-time">
+                    </div>
+
+                    <div class="input-profile" style="font-size: 25px; font-weight:600">
+                        <label name="interest" id="interest">Job Location </label><br/>
+                        <input type="text" id="interest" name="interest" style="font-size: 18px; width: 90% ">
+                    </div>
+
+                    <div class="input-profile" style="font-size: 25px; font-weight:600">
+                        <label name="address" id="address">Link for applying: </label><br/>
+                        <input type="text" id="address" name="address" style="font-size: 18px; width: 90% "
+                               placeholder="Form link">
+                    </div>
+
+{#                    <div class="input-profile" style="font-size: 25px; font-weight:600">#}
+{#                        <label name="email" id="email">Email: </label><br/>#}
+{#                        <input type="email" id="email" name="email" style="font-size: 18px; width: 90% "#}
+{#                               placeholder="Email address of the company.">#}
+{#                    </div>#}
+
+{#                    <div class="input-profile" style="font-size: 25px; font-weight:600">#}
+{#                        <label name="phone" id="phone">Phone No.: </label><br/>#}
+{#                        <input type="text" id="phone" name="phone" style="font-size: 18px; width: 90% "#}
+{#                               placeholder="Drop your company website.">#}
+{#                    </div>#}
+
+{#                    <div class="input-profile" style="font-size: 25px; font-weight:600">#}
+{#                        <label name="website" id="website">Website link: </label><br/>#}
+{#                        <input type="text" id="website" name="website" style="font-size: 18px; width: 90% "#}
+{#                               placeholder="Drop your company website.">#}
+{#                    </div>#}
+
+{#                    <div class="input-profile" style="font-size: 25px; font-weight:600">#}
+{#                        <label name="reach" id="reach">Reach: </label><br/>#}
+{#                        <input type="text" id="reach" name="reach" style="font-size: 18px; width: 90% "#}
+{#                               placeholder="Your ties with other companies.">#}
+{#                    </div>#}
+
+                    <div style="font-size: 25px; font-weight:600">
+                        <label name="logo" id="logo">Detailed Job Description </label><br>
+                        <input type="file" name="logo"  id="logo" >
+                    </div>
+                    <div class="mb-3 mt-3 text-center">
+                        <button type="submit" class=" btn1">Submit</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
