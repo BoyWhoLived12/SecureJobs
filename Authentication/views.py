@@ -130,4 +130,13 @@ def account_personal(request):
 
 def job_post(request):
     context = {}
+    if request.method == 'POST':
+        title = request.POST['title']
+        desc = request.POST['desc']
+        job_type = request.POST['type']
+        location = request.POST['location']
+        link = request.POST['link']
+        desc_pdf = request.POST['desc_pdf']
+        print(title)
+
     return render(request, 'job_post.html', context)
