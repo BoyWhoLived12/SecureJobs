@@ -33,6 +33,7 @@ class CompanyContact(models.Model):
 class JobPost(models.Model):
     company = models.ForeignKey(Company, models.CASCADE)
     job_id = models.IntegerField(primary_key=True)
+    job_date = models.DateField()
     job_title = models.CharField(max_length=40)
     job_desc = models.TextField()
     jd_pdf = models.FileField(null=True, blank=True)
