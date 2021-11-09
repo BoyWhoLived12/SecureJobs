@@ -3,50 +3,81 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{% static 'custom.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <title>{% block head %} Hello World! {% endblock head %}</title>
 </head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+<body style="background-color:#f8f8ee">
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+
+        <a class="navbar-brand">Navbar</a>
+        <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
     </div>
-  </div>
 </nav>
 {% block body %}
 {% endblock body %}
+<hr width="80%" align="center" style="color:#000000; height:2px">
 
+<footer class="bg-dark text-center text-white">
+    <!-- Grid container -->
+    <div class="container py-2 px-2">
+        <section class="mb-3">
+            <div class="d-flex ">
+                <p style="width: 80%; text-align: left;">
+                    Welcome to secure jobs, a job seeking platform. This website is created by <a href="/about"
+                                                                                                  style="color:#eeeeee; text-decoration:underline">Ayush
+                    Bansal</a> and <a href="/about" style="color:#eeeeee; text-decoration:underline">Shubhankar Oad</a>
+                    with a vision to provide jobs to unemployed. Not just that you find the employed people here
+                    following there passion or searching for a new job that suits there current skill set. You can view
+                    the profile of other people that give you new ideas and help finding new job opportunities. ... <a
+                        href="about" style="color:#fff; text-decoration:underline;">more</a>
+
+                </p>
+                <div class="px-4 mx-4" style="font-size:18px; width: 20%; text-align: right;">
+                    <a href="#" style="color:#ffffff;">About</a><br/>
+                    <a href="#" style="color:#ffffff;">Jobs</a><br/>
+                    <a href="#" style="color:#ffffff;">Home</a><br/>
+                    <a href="#" style="color:#ffffff;">Companies</a>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Section: Social media -->
+        <section class="mb-2">
+            <!-- Google -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fa">&#xf1a0;</i
+            ></a>
+
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fa">&#xf0e1;</i></a>
+
+            <!-- Github -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fa">&#xf09b;</i>
+            </a>
+        </section>
+        <!-- Section: Social media -->
+        <!-- Section: Links -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2020 Copyright:
+        <a class="text-white" href="/about">SecureJobs.com</a>
+    </div>
+    <!-- Copyright -->
+</footer>
+<!-- Footer -->
 </body>
 </html>

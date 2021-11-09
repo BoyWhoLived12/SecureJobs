@@ -1,5 +1,51 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block body %}
-    <h1> Hello world: </h1>
+    <div class="container-fluid my-4 py-2" style=" ">
+        <div class="container my-2 py-2 px-3"
+             style=" border: #777777 1px solid; border-radius: 5px; box-shadow: 2px 3px #cccccc; background-color: #ffffff">
+            <div class="d-flex">
+                <img class="mx-4 my-3" src="{% static 'images/images.jpeg' %}" height="200px" width="200px"
+                     style="border-radius: 50%">
+                <div class="mx-2 px-2">
+                    <h1 class="mt-3 mx-2 px-2">John Butcher</h1>
+                    <h4 class="mt-1 mx-2 px-2" style="color: #444444">ML Enthusiast</h4>
+                    <h5 class="mt-1 mx-2 px-2" style="color: #666666">University of Waterloo(B.S. Computer Science)</h5>
+                    <h5 class="mt-1 mx-2 px-2" style="color: #666666">Stanford University(M.S. Computer Science)</h5>
+                    <h6 class="mt-1 mx-2 px-2" style="color: #666666">
+                        <a href="https://github.com/BoyWhoLived12" style="color:#666666; text-decoration: underline;">
+                            Website/Github
+                        </a>
+                    </h6>
+
+                </div>
+            </div>
+            <hr width="80%" align="center"/>
+            <div class="container mx-4 my-4" style="color: #666666">
+                <h2 class="mb-2" style="color:#444444">Interests</h2>
+                <p>
+                    Hello Everyone, I am John Butcher. I am a Post Graduate in Computer Science. I am an Machine
+                    Learning and a AI expert. I have worked on many projects related to computer vision and autonomous
+                    robots. I am really enthusiastic about the Integration of computer vision and reinforcement
+                    learning. Along with this I am also interested in the Block Chain it is a really interesting field
+                    and offers s good future scope, the interest shown by people in crypto-currency and the NFTs is a
+                    lot more than I ever expected.
+                </p>
+            </div>
+            <div class="container mx-4 my-4" style="color: #666666">
+                <h2 class="mb-2" style="color:#444444">Works</h2>
+                <p>
+                    Research Intern: I have done a research intern in the field of machine learning in university of
+                    texas, USA. It was about the better data augmentation and the processing in field of Automation.<br/>
+                    Industrial Intern: I have served 6 months as an intern in Samsung, South Korea. About the face
+                    recognition and reinforcements learning to identify new faces.<br/>
+                    Projects: I have created many small projects to detect speed of the cars n a crossway and even
+                    violation of rules on the traffic signals.
+
+                </p>
+            </div>
+        </div>
+
+
+    </div>
 {% endblock body %}

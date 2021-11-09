@@ -59,7 +59,7 @@ def register_user(request):
 
 def home(request):
     context = {}
-    return render(request, 'home_page.html', context)
+    return render(request, 'company_profile.html', context)
 
 
 def account_company(request):
@@ -140,3 +140,4 @@ def job_post(request):
         print(title)
 
     return render(request, 'job_post.html', context)
+
