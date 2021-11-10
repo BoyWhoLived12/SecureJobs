@@ -5,11 +5,12 @@ from django.contrib import messages
 from .forms import CreateUserForm
 from django.contrib.auth.models import Group
 from .models import *
-
-
+from django.contrib.auth.decorators import login_required
+from .decorators import *
 # Create your views here.
 
 
+@unauthenticated_user
 def login_user(request):
     context = {}
     if request.method == 'POST':
@@ -29,6 +30,7 @@ def login_user(request):
     return render(request, 'login.html', context)
 
 
+@unauthenticated_user
 def register_user(request):
     form = CreateUserForm()
     if request.method == 'POST':
@@ -57,11 +59,19 @@ def register_user(request):
     return render(request, 'register.html', context)
 
 
+@login_required(login_url='login')
 def home(request):
     context = {}
-    return render(request, 'company_profile.html', context)
+    group = Group.objects.get(name='company')
+    # if group in request.user.groups:
+    #
+    #     return render(request, 'company_profile.html', context)
+    # else:
+    #     return render(request, 'personal_profile.html', context)
+    return render(request, 'personal_profile.html', context)
 
 
+@unauthenticated_user
 def account_company(request):
     context = {}
     if request.method == 'POST':
@@ -80,12 +90,12 @@ def account_company(request):
         logo = request.POST['logo']
         print(name, date)
         ins1 = Company(company_id=username,
-                      comp_name=name,
-                      category=category,
-                      date_inco=date,
-                      interest=interest,
-                      about=about,
-                      logo=logo)
+                       comp_name=name,
+                       category=category,
+                       date_inco=date,
+                       interest=interest,
+                       about=about,
+                       logo=logo)
         ins1.save()
         ins = CompanyContact(company=ins1,
                              contact_email=mail_id,
@@ -98,6 +108,7 @@ def account_company(request):
     return render(request, 'account_company.html', context)
 
 
+@unauthenticated_user
 def account_personal(request):
     context = {}
     if request.method == 'POST':
@@ -112,9 +123,9 @@ def account_personal(request):
         website = request.POST['website']
         photo = request.POST['photo']
         ins1 = FollowerPersonal(follower_id=username,
-                               full_name=name,
-                               gender=gender,
-                               date_of_birth=dob)
+                                full_name=name,
+                                gender=gender,
+                                date_of_birth=dob)
         ins1.save()
         ins = FollowerProf(follower=ins1,
                            header=header,
@@ -140,4 +151,3 @@ def job_post(request):
         print(title)
 
     return render(request, 'job_post.html', context)
-
