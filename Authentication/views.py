@@ -139,6 +139,7 @@ def account_personal(request):
     return render(request, 'account_personal.html', context)
 
 
+@login_required(login_url='login')
 def job_post(request):
     context = {}
     if request.method == 'POST':
@@ -151,3 +152,31 @@ def job_post(request):
         print(title)
 
     return render(request, 'job_post.html', context)
+
+
+@login_required(login_url='login')
+def job_list(request):
+    context = {}
+
+    return render(request, 'job_list.html', context)
+
+
+@login_required(login_url='login')
+def job_detail(request):
+    context = {}
+
+    return render(request, 'job_detail.html', context)
+
+
+@login_required(login_url='login')
+def company_list(request):
+    context = {}
+
+    return render(request, 'company_list.html', context)
+
+
+@login_required(login_url='login')
+def company_detail(request):
+    context = {}
+
+    return render(request, '', context)
