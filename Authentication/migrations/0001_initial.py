@@ -64,7 +64,7 @@ class Migration(migrations.Migration):
                 ('education', models.TextField(blank=True, null=True)),
                 ('git_website', models.CharField(blank=True, max_length=40, null=True)),
                 ('work_exp', models.TextField(blank=True, null=True)),
-                ('photo', models.ImageField(blank=True, null=True, upload_to='')),
+                ('photo', models.ImageField(blank=True, null=True, upload_to='images/')),
             ],
             options={
                 'db_table': 'follower_prof',

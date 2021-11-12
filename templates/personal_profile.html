@@ -14,7 +14,7 @@
              style=" border: #777777 1px solid; border-radius: 5px; box-shadow: 2px 3px #cccccc; background-color: #ffffff">
             <div class="d-flex">
                 {% if follower_prof.photo %}
-                    <img class="mx-4 my-3" src="{{ follower_prof.photo.url }}" height="200px" width="200px"
+                    <img class="mx-4 my-3" src="{% static 'images/images.jpeg' %}" height="200px" width="200px"
                          style="border-radius: 50%">
                 {% else %}
                     <img class="mx-4 my-3" src="{% static 'images/images.jpeg' %}" height="200px" width="200px"

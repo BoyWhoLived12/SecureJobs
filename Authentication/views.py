@@ -66,8 +66,7 @@ def home(request):
     context = {}
     username = request.user.username
     if request.user.groups.all()[0].name == 'company':
-        company = Company.objects.filter(company_id=username)
-        companyContact = CompanyContact.objects.filter(company=company)
+
         return render(request, 'company_profile.html', context)
 
     else:
@@ -85,6 +84,7 @@ def home(request):
                 follower_prof = x
         context['follower'] = follower
         context['follower_prof'] = follower_prof
+        print(type(follower_prof.photo))
         return render(request, 'personal_profile.html', context)
     # return render(request, 'personal_profile.html', context)
 
