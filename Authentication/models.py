@@ -62,3 +62,4 @@ class FollowerProf(models.Model):
 
     class Meta:
         db_table = 'follower_prof'
+
