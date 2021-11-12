@@ -66,6 +66,25 @@ def home(request):
     context = {}
     username = request.user.username
     if request.user.groups.all()[0].name == 'company':
+        companies = Company.objects.all()
+        contacts = CompanyContact.objects.all()
+        company = None
+        contact = None
+        for x in companies:
+            if x.company_id == username:
+                company = x
+                break
+
+        if company is None:
+            return redirect('c_account')
+
+        for x in contacts:
+            if x.company == company:
+                contact = x
+                break
+
+        context['company'] = company
+        context['contact'] = contact
 
         return render(request, 'company_profile.html', context)
 
@@ -77,14 +96,18 @@ def home(request):
         for x in followers:
             if x.follower_id == username:
                 follower = x
+                break
+
         if follower is None:
             return redirect('p_account')
         for x in follower_profs:
             if x.follower == follower:
                 follower_prof = x
+                break
+
         context['follower'] = follower
         context['follower_prof'] = follower_prof
-        print(type(follower_prof.photo))
+        print(follower_prof.photo)
         return render(request, 'personal_profile.html', context)
     # return render(request, 'personal_profile.html', context)
 
@@ -139,6 +162,7 @@ def account_personal(request):
         education = request.POST['education']
         website = request.POST['website']
         photo = request.POST['photo']
+        print(photo)
         ins1 = FollowerPersonal(follower_id=username,
                                 full_name=name,
                                 gender=gender,
@@ -203,3 +227,4 @@ def company_detail(request):
 def logout_user(request):
     logout(request)
     return redirect('login')
+
