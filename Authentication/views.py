@@ -7,6 +7,8 @@ from django.contrib.auth.models import Group
 from .models import *
 from django.contrib.auth.decorators import login_required
 from .decorators import *
+
+
 # Create your views here.
 
 
@@ -62,16 +64,31 @@ def register_user(request):
 @login_required(login_url='login')
 def home(request):
     context = {}
-    group = Group.objects.get(name='company')
-    # if group in request.user.groups:
-    #
-    #     return render(request, 'company_profile.html', context)
-    # else:
-    #     return render(request, 'personal_profile.html', context)
-    return render(request, 'personal_profile.html', context)
+    username = request.user.username
+    if request.user.groups.all()[0].name == 'company':
+        company = Company.objects.filter(company_id=username)
+        companyContact = CompanyContact.objects.filter(company=company)
+        return render(request, 'company_profile.html', context)
+
+    else:
+        followers = FollowerPersonal.objects.all()
+        follower_profs = FollowerProf.objects.all()
+        follower_prof = None
+        follower = None
+        for x in followers:
+            if x.follower_id == username:
+                follower = x
+        if follower is None:
+            return redirect('p_account')
+        for x in follower_profs:
+            if x.follower == follower:
+                follower_prof = x
+        context['follower'] = follower
+        context['follower_prof'] = follower_prof
+        return render(request, 'personal_profile.html', context)
+    # return render(request, 'personal_profile.html', context)
 
 
-@unauthenticated_user
 def account_company(request):
     context = {}
     if request.method == 'POST':
@@ -104,11 +121,11 @@ def account_company(request):
                              website=website,
                              reach=reach)
         ins.save()
+        return redirect('home')
 
     return render(request, 'account_company.html', context)
 
 
-@unauthenticated_user
 def account_personal(request):
     context = {}
     if request.method == 'POST':
@@ -135,6 +152,7 @@ def account_personal(request):
                            work_exp=works,
                            photo=photo)
         ins.save()
+        return redirect('home')
 
     return render(request, 'account_personal.html', context)
 
@@ -180,3 +198,8 @@ def company_detail(request):
     context = {}
 
     return render(request, '', context)
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('login')

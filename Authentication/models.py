@@ -18,7 +18,7 @@ class Company(models.Model):
 
 
 class CompanyContact(models.Model):
-    company = models.ForeignKey(Company, models.CASCADE)
+    company = models.ForeignKey(Company, models.CASCADE, primary_key=True)
     contact_email = models.CharField(max_length=40)
     contact_phone = models.CharField(max_length=15, blank=True, null=True)
     address = models.TextField(blank=True, null=True)
@@ -58,7 +58,7 @@ class FollowerPersonal(models.Model):
 
 
 class FollowerProf(models.Model):
-    follower = models.ForeignKey(FollowerPersonal, models.CASCADE)
+    follower = models.ForeignKey(FollowerPersonal, models.CASCADE, primary_key=True)
     header = models.CharField(max_length=80, blank=True, null=True)
     interests = models.TextField(blank=True, null=True)
     education = models.TextField(blank=True, null=True)

@@ -11,14 +11,25 @@
     <title>{% block head %} Hello World! {% endblock head %}</title>
 </head>
 <body style="background-color:#f8f8ee">
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-
-        <a class="navbar-brand">Navbar</a>
-        <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+        <a class="navbar-brand" href="#">Secure Jobs</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link {% block Home %}{% endblock Home %}" aria-current="page" href="/">Home</a>
+                <a class="nav-link {% block Jobs %}{% endblock Jobs %}" href="/job_list">Jobs</a>
+                <a class="nav-link {% block Companies %}{% endblock Companies %}" href="/company_list">Companies</a>
+            </div>
+        </div>
+        <form class="d-flex" action="/auth/logout" method="get">
+            {% csrf_token %}
+            <button class="btn btn-outline-success" type="submit">Logout</button>
         </form>
+
     </div>
 </nav>
 {% block body %}
@@ -41,10 +52,10 @@
 
                 </p>
                 <div class="px-4 mx-4" style="font-size:18px; width: 20%; text-align: right;">
-                    <a href="#" style="color:#ffffff;">About</a><br/>
-                    <a href="#" style="color:#ffffff;">Jobs</a><br/>
-                    <a href="#" style="color:#ffffff;">Home</a><br/>
-                    <a href="#" style="color:#ffffff;">Companies</a>
+                    <a href="" style="color:#ffffff;">About</a><br/>
+                    <a href="/job_list" style="color:#ffffff;">Jobs</a><br/>
+                    <a href="" style="color:#ffffff;">Home</a><br/>
+                    <a href="/company_list" style="color:#ffffff;">Companies</a>
 
                 </div>
             </div>
