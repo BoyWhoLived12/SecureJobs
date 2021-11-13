@@ -5,10 +5,11 @@
     Company Profile
 {% endblock head %}
 
-{% block Home %}
-    active
-{% endblock Home %}
-
+{% if owner %}
+    {% block Home %}
+        active
+    {% endblock Home %}
+{% endif %}
 {% block body %}
     <div class="container-fluid my-4 py-2" style=" ">
         <div class="container my-2 py-2 px-3"
@@ -74,8 +75,8 @@
                                  style="border-radius: 50%">
                             <div class="mx-2 px-2">
                                 <h3 class="mt-1 mx-2 px-2">{{ job.job_title }}</h3>
-                                    <a class="mx-2 px-2" href="/job_detail/{{ job.job_id }}"
-                                       style="color: #666666; text-decoration: underline">View More</a>
+                                <a class="mx-2 px-2" href="/job_detail/{{ job.job_id }}"
+                                   style="color: #666666; text-decoration: underline">View More</a>
                                 </p>
                             </div>
                         </div>
