@@ -7,7 +7,8 @@ from django.contrib.auth.models import Group
 from .models import *
 from django.contrib.auth.decorators import login_required
 from .decorators import *
-
+from datetime import date
+import numpy as np
 
 # Create your views here.
 
@@ -82,10 +83,16 @@ def home(request):
             if x.company == company:
                 contact = x
                 break
+        jobs = []
+        listJobs = JobPost.objects.all()
+        for x in listJobs:
+            if x.company == company:
+                jobs.append(x)
 
+        context['jobs'] = jobs
         context['company'] = company
         context['contact'] = contact
-
+        context['owner'] = True
         return render(request, 'company_profile.html', context)
 
     else:
@@ -185,27 +192,64 @@ def account_personal(request):
 def job_post(request):
     context = {}
     if request.method == 'POST':
+        user = request.user.username
+        company = None
+        companies = Company.objects.all()
+        for x in companies:
+            if x.company_id == user:
+                company = x
+                break
+        jobs = JobPost.objects.all()
+        l = len(jobs)
+        dateToday = date.today()
         title = request.POST['title']
         desc = request.POST['desc']
         job_type = request.POST['type']
         location = request.POST['location']
         link = request.POST['link']
         desc_pdf = request.POST['desc_pdf']
-        print(title)
-
+        ins = JobPost(company=company,
+                      job_id=l+1,
+                      job_date=dateToday,
+                      job_title=title,
+                      job_desc=desc,
+                      jd_pdf=desc_pdf,
+                      job_type=job_type,
+                      job_location=location,
+                      link=link)
+        ins.save()
+        return redirect('home')
+    else:
+        user = request.user
     return render(request, 'job_post.html', context)
 
 
 @login_required(login_url='login')
 def job_list(request):
     context = {}
-
+    jobs = JobPost.objects.all()
+    context['jobs'] = jobs
     return render(request, 'job_list.html', context)
 
 
 @login_required(login_url='login')
-def job_detail(request):
+def job_detail(request, slug):
     context = {}
+    slug = int(slug)
+    jobs = JobPost.objects.all()
+    for x in jobs:
+        if x.job_id == slug:
+            job = x
+            break
+
+    company = job.company
+    contacts = CompanyContact.objects.all()
+    for x in contacts:
+        if x.company == company:
+            context['contact'] = x
+            break
+    context['company'] = company
+    context['JobPost'] = job
 
     return render(request, 'job_detail.html', context)
 
@@ -213,15 +257,42 @@ def job_detail(request):
 @login_required(login_url='login')
 def company_list(request):
     context = {}
-
+    companies = Company.objects.all()
+    context['companies'] = companies
     return render(request, 'company_list.html', context)
 
 
 @login_required(login_url='login')
-def company_detail(request):
+def company_detail(request, slug):
     context = {}
 
-    return render(request, '', context)
+    companies = Company.objects.all()
+    contacts = CompanyContact.objects.all()
+    company = None
+    contact = None
+    for x in companies:
+        if x.company_id == slug:
+            company = x
+            break
+
+    if company is None:
+        return redirect('c_account')
+
+    for x in contacts:
+        if x.company == company:
+            contact = x
+            break
+    jobs = []
+    listJobs = JobPost.objects.all()
+    for x in listJobs:
+        if x.company == company:
+            jobs.append(x)
+
+    context['jobs'] = jobs
+    context['company'] = company
+    context['contact'] = contact
+    context['owner'] = False
+    return render(request, 'company_profile.html', context)
 
 
 def logout_user(request):

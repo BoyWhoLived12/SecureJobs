@@ -18,11 +18,11 @@
                     {% csrf_token %}
                     <div class="input-profile" style="font-size: 25px; font-weight:600">
                         <label name="title" id="title">Job Title</label><br/>
-                        <input type="text" id='title' name="title" required>
+                        <input type="text" id='title' name="title" style="font-size: 18px; width: 40%" placeholder="Eg ML Research, Web Development"required>
                     </div>
                     <div class="input-profile" style="font-size: 25px; font-weight:600">
                         <label name="desc" id="desc">Job Description</label><br/>
-                        <input type="text" id='desc' name="desc" required>
+                        <input type="text" id='desc' name="desc" style="font-size: 18px; width: 90%" placeholder="Short description of the job " required>
                     </div>
                     <div class="input-profile" style="font-size: 25px; font-weight:600">
                         <label name="type" id="type">Job Type</label><br/>
@@ -32,7 +32,7 @@
 
                     <div class="input-profile" style="font-size: 25px; font-weight:600">
                         <label name="location" id="location">Job Location </label><br/>
-                        <input type="text" id="location" name="location" style="font-size: 18px; width: 90% ">
+                        <input type="text" id="location" name="location" placeholder="location" style="font-size: 18px; width: 90% ">
                     </div>
 
                     <div class="input-profile" style="font-size: 25px; font-weight:600">
@@ -41,9 +41,9 @@
                                placeholder="Form link">
                     </div>
 
-                    <div style="font-size: 25px; font-weight:600">
+                    <div class="input-profile" style="font-size: 25px; font-weight:600">
                         <label name="desc_pdf" id="desc_pdf">Detailed Job Description </label><br>
-                        <input type="text" name="desc_pdf"  id="desc_pdf" placeholder="Link for the PDF" >
+                        <input type="text" name="desc_pdf"  id="desc_pdf" style="font-size: 18px; width: 90%" placeholder="Link for the PDF" >
                     </div>
                     <div class="mb-3 mt-3 text-center">
                         <button type="submit" class=" btn1">Submit</button>
