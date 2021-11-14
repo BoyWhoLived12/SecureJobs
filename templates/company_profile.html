@@ -5,11 +5,13 @@
     Company Profile
 {% endblock head %}
 
-{% if owner %}
-    {% block Home %}
+
+{% block Home %}
+    {% if owner %}
         active
-    {% endblock Home %}
-{% endif %}
+    {% endif %}
+{% endblock Home %}
+
 {% block body %}
     <div class="container-fluid my-4 py-2" style=" ">
         <div class="container my-2 py-2 px-3"
